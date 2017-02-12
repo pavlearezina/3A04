@@ -1,0 +1,58 @@
+\documentclass[12pt, titlepage]{article}
+\usepackage{geometry}
+\usepackage{changepage}
+\title{SE 3A04: Software Design III: Large System Design}
+\author{Group \#5, Spaceship System Sabatoge %Alliteration; always adored and absolutely amazing
+		\\Pareek Ravi 001407109
+		\\Pavle Arezina 001410366
+		\\David Hobson 001412317
+		\\Victoria Graff 001401451
+		\\Julian Cassano 001406891
+}
+\date{\today}
+\begin{document}
+\maketitle
+\pagenumbering{roman}
+\tableofcontents
+\listoftables
+\listoffigures
+\begin{table}[bp]
+\caption{\bf Revision History}
+\end{table}
+\newpage
+\pagenumbering{arabic}
+
+\section{Overall Description}
+\subsection{Product Perspective}
+Spaceship System Sabotage is an independent and self-containted system. The typical user experience with this application is to keep the system operating for as long as possible so that after a specified period of time the space craft will "reach its intended destination" and the user will reach an end state through a win condition. This perspective on the interaction of sub-systems will make the application feel more like a game than it does a simulation. When a sub-system is inputted with a stimulus to cause it to fail, the application will tell the user that one of the crew members of the ship has sabotaged a sub-system. This acts as a challenge for the user to keep the crew members alive but attempt to determine who the defector of the crew is, providing "lore" and context for the simulated sub-system failure so that the user has motivation to keep the system functional.
+%do a block diagram, use examples from xa3 srs
+
+\subsection{Product Functions}
+\begin{itemize}
+\item The user will be able to start a simulation of a system
+\item The different sub-systems will be displayed for the user
+\item The user will be able to switch viewpoints to choose the sub-system they are observing
+\item Messages/alerts will be displayed for the user
+\item The sub-systems will be able to receive stimulus from the application to prompt a status change
+\item The sub-systems will be able to affect other sub-systems depending on their status
+\item The user will be able to input a stimulus that will have a specified effect on a sub-system, namely a status change back to the original state
+\item The simulation will be able to reach an end state at any time and terminate the simulation
+\item The user will be able to end the simulation at any time if they so choose
+\end{itemize}
+%they want more graphics so draw them a picture of a pony or some shit idk
+
+\subsection{User Characteristics}
+The intended user of this application is anyone who enjoys games or challenges and has a basic understanding of systems and how they can interact. No previous work or school experience with designing systems is required as this application is not a test on the user's understanding of software architecture. This application aims to provide a casual experience of simulating the negative effects of sub-systems failing in a larger system and allows the user to have a role in this scenario regardless of failure or not. Each end state is an acceptable level of completion in terms of the simulation as they both result in a demonstration of the interaction between sub-systems. This means that the application is accessible to anyone from casual players in elementary school to Dr. Khedri while he's killing time waiting for his TAs to mark these deliverables.
+
+\subsection{Constraints}
+The limitations of this project come in the form of development time. The allocated amount of hours that we intend to dedicate to this project are in negative correlation with the amount of other school work we have to do during the timeframes of each deliverable. We would love to make this a full fleshed out game that is fun and challenging but at the moment we do not have the time to comfortably meet the requirements of the project and introduce enough additional features to make this a fun to play, sellable game. The rubric specified by the TAs will first and foremost be followed, and only then can additional features be added.
+%add another section that says something smart about the language we are using once we determine that
+
+\subsection{Assumptions and Dependencies}
+% I need to see requirements before I do this *COUGH* PAREEK AND DAVID *COUGH*
+
+\subsection{Apportioning of Requirements}
+%In version 1.1 we'll include a game mode where the creators of FTL sue us
+
+
+\end{document}
