@@ -1,0 +1,44 @@
+BE1: User wants to combine the views of multiple sub-systems
+- VP: User
+    - The system will provide an interface for the user to interact with when combing views
+    - The system will allow the user to select views to be combined
+    - The system will display the combined views in a layered format
+    - The system will be able to support any amount of view to be combined.
+BE2: User wants to add a sub-system view
+- VP: User
+    - The system will provide an interface for the user to interact with when adding views
+    - The system will allow the user to select a view to be shown on the system
+BE3: User wants to remove a sub-system view
+- VP: User
+    - The system will provide an interface for the user to interact with when removing views
+    - The system will allow the user to select a view to be removed from the system
+BE4: User wants to stimulate a sub-system
+- VP: User
+    - The system will provide an interface for the user to interact with different sub-systems and be able to select a particular sub-system
+    - The system must display the result of when the stimulus takes place
+BE5: User wants to start the system
+- VP: User
+    - System must provide an interface to allow the user to start the overall system
+    - System must provide an option for selecting 3 or more sub-systems to have enabled
+    - System must display only the overall system and none of the sub systems
+BE6: User wants to pause the system
+- VP: User
+    - System must provide an interface to pause the system
+    - System must provide a means to alter the game settings
+    - System must display the current state of all the sub-systems
+BE7: User wants to resume the system
+- VP: User
+    - System must provide an interface to resume the system
+    - The system must resume to the exact state before it was paused
+    - The system must display the same set of sub systems as it was before pausing
+BE8: User wants to end the system
+- VP: User
+    - System must provide an interface to allow the user to end the overall system
+    - System must show the final state of all the sub-systems
+    - System must provide an option for the user to restart the system from initial conditions
+BE9: System sends a Random Time Stimuli
+- VP: User
+    - System must stimulate a sub-system with a random event
+    - System must determine the event based on a weighted system to determine which event will be simulated from a set of events
+    - System must display the stimulus and display a text description of the stimulus
+    - System must clearly indicated the region of the system affected by the stimulus
