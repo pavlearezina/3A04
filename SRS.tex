@@ -3,7 +3,7 @@
 \usepackage{changepage}
 \usepackage{enumerate}
 \title{SE 3A04: Software Design III: Large System Design}
-\author{Group \#5, Spaceship System Sabatoge %Alliteration; always adored and absolutely amazing
+\author{Group \#5, Spaceship System Sabotage %Alliteration; always adored and absolutely amazing
 		\\Pareek Ravi 001407109
 		\\Pavle Arezina 001410366
 		\\David Hobson 001412317
@@ -25,7 +25,7 @@
 
 \section{Overall Description}
 \subsection{Product Perspective}
-Spaceship System Sabotage is an independent and self-containted system. The typical user experience with this application is to keep the system operating for as long as possible so that after a specified period of time the space craft will "reach its intended destination" and the user will reach an end state through a win condition. This perspective on the interaction of sub-systems will make the application feel more like a game than it does a simulation. When a sub-system is inputted with a stimulus to cause it to fail, the application will tell the user that one of the crew members of the ship has sabotaged a sub-system. This acts as a challenge for the user to keep the crew members alive but attempt to determine who the defector of the crew is, providing "lore" and context for the simulated sub-system failure so that the user has motivation to keep the system functional.
+Spaceship System Sabotage is an independent and self-contained system that simulates a spaceship. The typical user experience with this application is to keep the system operating for as long as possible so that after a specified period of time the space craft will "reach its intended destination" and the user will reach an end state through a win condition. This perspective on the interaction of sub-systems will make the application feel more like a game than it does a simulation. When a sub-system is triggered with a stimulus leading to a sub-system failure, the application will tell the user that one of the crew members of the ship has sabotaged a sub-system. This acts as a challenge for the user to keep the crew members alive but attempt to determine who the defector of the crew is, providing "lore" and context for the simulated sub-system failure so that the user has motivation to keep the system functional.
 
 \subsection{Product Functions}
 \begin{itemize}
@@ -55,6 +55,106 @@ The assumptions in the requirements section of this document are focused around 
 \subsection{Apportioning of Requirements}
 Some non-functional requirements that could take too long to implement and are not explicitly required for a functional demonstration may be delayed until later versions of the application. Some areas of development that this is a concern for are the low loading times and "clean" interface.
 %In version 1.1 we'll include a game mode where the creators of FTL sue us
+
+\section{Functional Requirements}
+\label{sec:functional_requirements}
+% Begin Section
+This section of the SRS should contain all of the software requirements to a level of detail sufficient to enable designers to design a system to satisfy those requirements, and testers to test that the system satisfies those requirements. Throughout this section, every stated requirement should be externally perceivable by users, operators, or other external systems. These requirements should include at a minimum a description of every input (stimulus) into the system, every output (response) from the system, and all functions performed by the system in response to an input or in support of an output.
+
+\begin{enumerate}[{BE}1.]
+	\item User wants to combine the views of multiple sub-systems
+	\begin{enumerate}[{VP1}.1]
+		\item User
+			\begin{enumerate}
+				\item The system will provide an interface for the user to interact with when combing views
+				\item The system will allow the user to select views to be combined
+				\item The system will display the combined views in a layered format
+				\item The system will be able to support any amount of views to be combined.
+			\end{enumerate}
+	\end{enumerate}
+	
+	\item User wants to add a sub-system view
+	\begin{enumerate}[{VP2}.1]
+		\item User
+			\begin{enumerate}
+				\item The system will provide an interface for the user to interact with when adding views
+				\item The system will allow the user to select a view to be shown on the system
+			\end{enumerate}
+	\end{enumerate}
+	
+	\item User wants to remove a sub-system
+	\begin{enumerate}[{VP3}.1]
+		\item User
+			\begin{enumerate}
+				\item The system will provide an interface for the user to interact with when removing views
+				\item The system will allow the user to select a view to be removed from the system
+			\end{enumerate}
+	\end{enumerate}
+	
+	\item User wants to stimulate a subsystem
+	\begin{enumerate}[{VP4}.1]
+		\item User
+			\begin{enumerate}
+				\item The system will provide an interface for the user to interact with different sub-systems and be able to select a particular sub-system
+				\item The system must display the result of when the stimulus takes place
+			\end{enumerate}
+	\end{enumerate}
+	
+	\item User wants to start the system
+	\begin{enumerate}[{VP5}.1]
+		\item User
+			\begin{enumerate}
+				\item System must provide an interface to allow the user to start the overall system
+				\item System must provide an option for selecting 3 or more sub-systems to have enabled
+				\item System must display only the overall system and none of the sub systems
+			\end{enumerate}
+	\end{enumerate}
+	
+	\item User wants to pause the system
+	\begin{enumerate}[{VP6}.1]
+		\item User
+			\begin{enumerate}
+				\item System must provide an interface to pause the system
+				\item System must provide a means to alter the game settings
+				\item System must display the current state of all the sub-systems
+			\end{enumerate}
+	\end{enumerate}
+	
+	\item User wants to resume the system
+	\begin{enumerate}[{VP7}.1]
+		\item User
+			\begin{enumerate}
+				\item System must provide an interface to resume the system
+				\item The system must resume to the exact state before it was paused
+				\item The system must display the same set of sub systems as it was before pausing
+			\end{enumerate}
+	\end{enumerate}
+	
+	\item User wants to end the system
+	\begin{enumerate}[{VP8}.1]
+		\item User
+			\begin{enumerate}
+				\item System must provide an interface to allow the user to end the overall system
+				\item System must show the final state of all the sub-systems
+				\item System must provide an option for the user to restart the system from initial conditions
+			\end{enumerate}
+	\end{enumerate}
+	
+	\item System sends a Random Time Stimuli
+	\begin{enumerate}[{VP9}.1]
+		\item User
+			\begin{enumerate}
+				\item System must stimulate a sub-system with a random event defined by parameters
+				\item System must determine the event based on a weighted system to determine which event will be simulated from a set of events
+				\item System must display the stimulus and display a text description of the stimulus
+				\item System must clearly indicated the region of the system affected by the stimulus
+			\end{enumerate}
+	\end{enumerate}
+	
+	
+\end{enumerate}
+
+
 
 \section{Non-Functional Requirements}
 \label{sec:non-functional_requirements}
