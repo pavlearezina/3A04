@@ -134,9 +134,14 @@ The main controller of the system is the primary interaction point for all class
 \subsection{Subsystems}
 \label{sub:subsystems}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Provide a brief description of each subsystem. Be sure to document its purpose and relationship to other subsystems.
-\end{enumerate}
+\begin{itemize}
+\item The power subsystem controls all of the all of the interactions that relate to the simulated amount of electrical power in the system and is dependent on the main controller. This subsystem can "malfunction" and must be stimulated to return to base state.
+\item The oxygen subsystem controls all of the interactions that relate to the simulated amount of air in the system and is dependent on the main controller. This subsystem can "malfunction" and must be stimulated to return to base state.
+\item The mechanical subsystem controls all of the interactions that relate to the simulated physical moving parts in the system and is dependent on the main controller. This subsystem can "malfunction" and must be stimulated to return to base state.
+\item The tool subsystem controls all of the interactions that will "fix" the other simulated subsystems and return them to normal state.
+\item The menu subsystem controls all interactions outside of the play session and will allow the user to performa actions such as pausing, resuming, or quitting the play session.
+\item The main controller subsystem is the main hub of interaction between all other subsystems and will apporpriately stimulate each subsystem at the correct time. This subsystem receives input from all other subsystems and returns the output back to each system to determine what will happen in the simulation.
+\end{itemize}
 % End SubSection
 
 % End Section
