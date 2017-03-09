@@ -1,5 +1,7 @@
 \documentclass[12pt, titlepage]{article}
 \usepackage{graphicx}
+\usepackage{float}
+\restylefloat{table}
 
 % Imported Packages
 %------------------------------------------------------------------------------
@@ -158,6 +160,88 @@ This section should contain all of your CRC cards.
 		\hline
 		\end{tabular}
 	\end{table}
+
+%Start Screen	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Start Screen}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 Receive request to display a prompt to start game& Menu Controller \\
+		 Display screen message to user& \\
+		 Respond to prompt being pressed by user& \\
+		 Send request to Menu Controller to start game& Menu Controller \\
+		\hline
+		\end{tabular}
+	\end{table}
+	
+%End Screen	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: End Screen}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 Receive request to display a prompt to end game& Menu Controller \\
+		 Display screen message to user& \\
+		 Respond to prompt being pressed by user& \\
+		 Send request to Menu Controller to end game& Menu Controller \\
+		\hline
+		\end{tabular}
+	\end{table}
+	
+%Pause Screen	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Pause Screen}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 Receive request to display a prompt to pause game& Menu Controller \\
+		 Display screen message to user& \\
+		 Respond to prompt being pressed by user& \\
+		 Send request to Menu Controller to pause and unpause game& Menu Controller \\
+		\hline
+		\end{tabular}
+	\end{table}
+	
+%Success Screen	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Success Screen}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 Receive request to display a screen message when game has been won& Menu Controller \\
+		 Display screen message to user& \\
+		\hline
+		\end{tabular}
+	\end{table}
+	
+%Failure Screen	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Failure Screen}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 Receive request to display a screen message when game has been lost& Menu Controller \\
+		 Display screen message to user& \\
+		\hline
+		\end{tabular}
+	\end{table}	
+	
 	
 \end{enumerate}
 % End Section
