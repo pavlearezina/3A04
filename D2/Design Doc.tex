@@ -171,8 +171,11 @@ This section should contain all of your CRC cards.
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
 		 Receive request to display a prompt to start game& Menu Controller \\
+		\hline
 		 Display screen message to user& \\
+		\hline
 		 Respond to prompt being pressed by user& \\
+		\hline
 		 Send request to Menu Controller to start game& Menu Controller \\
 		\hline
 		\end{tabular}
@@ -188,8 +191,11 @@ This section should contain all of your CRC cards.
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
 		 Receive request to display a prompt to end game& Menu Controller \\
+		\hline
 		 Display screen message to user& \\
+		\hline
 		 Respond to prompt being pressed by user& \\
+		\hline
 		 Send request to Menu Controller to end game& Menu Controller \\
 		\hline
 		\end{tabular}
@@ -205,8 +211,11 @@ This section should contain all of your CRC cards.
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
 		 Receive request to display a prompt to pause game& Menu Controller \\
+		\hline
 		 Display screen message to user& \\
+		\hline
 		 Respond to prompt being pressed by user& \\
+		\hline
 		 Send request to Menu Controller to pause and unpause game& Menu Controller \\
 		\hline
 		\end{tabular}
@@ -222,6 +231,7 @@ This section should contain all of your CRC cards.
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
 		 Receive request to display a screen message when game has been won& Menu Controller \\
+		\hline
 		 Display screen message to user& \\
 		\hline
 		\end{tabular}
@@ -237,12 +247,246 @@ This section should contain all of your CRC cards.
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
 		 Receive request to display a screen message when game has been lost& Menu Controller \\
+		\hline
 		 Display screen message to user& \\
 		\hline
 		\end{tabular}
 	\end{table}	
+
+%Choose Tool
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Choose Tool}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 A view for the user the select the tool they wish to use to fix the issue on the spaceship & Tool Controller\\
+		\hline
+		\end{tabular}
+	\end{table}
 	
-	
+%Tool Fail
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Tool Fail}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 A view to show the user that they chose the wrong tool to fix the issue & Tool Controller\\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Tool Success
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Tool Success}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 A view to show the user that they chose the correct tool to fix the issue & Tool Controller\\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Event Alert
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Event Alert}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 A view to show the user that there is an issue with the spaceship & Tool Controller\\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Event Timer
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Event Timer}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 A timer to handle the duration of an event & Tool Controller\\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Tool Controller
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Tool Controller}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 Get user's tool choice & Choose Tool\\
+		\hline
+		 Determine if it was the correct tool to use & Tool Success, Tool Fail \\
+		\hline
+		 Inform the user of an issue & Event Alert \\
+		\hline
+		 Know the event has occured & Overall Controller \\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Power Model
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Power Model}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 Hold the information of the power system & \\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Power View
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Power View}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 DIsplay the power system to the user & Power Controller\\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Power Controller
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Power Controller}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		Updates subsystem information after tool usage & Power Model, Overall Controller\\
+		\hline
+		 Tells system of subsystem information & Power Model, Overall Controller\\
+		\hline
+		 Indicate to the view what to display & Power View, Power Model\\
+		\hline
+		 Generate the stimulation based on a time & Overall Controller \\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Oxygen Model
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Oxygen Model}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 Hold the information of the oxygen system & \\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Oxygen View
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Oxygen View}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 DIsplay the oxygen system to the user & Oxygen Controller\\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Oxygen Controller
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Oxygen Controller}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		Updates subsystem information after tool usage & Oxygen Model, Overall Controller\\
+		\hline
+		 Tells system of subsystem information & Oxygen Model, Overall Controller\\
+		\hline
+		 Indicate to the view what to display & Oxygen Model, Oxygen View\\
+		\hline
+		 Generate the stimulation based on a time & Overall Controller \\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Mechanical Model
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Mechanical Model}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 Hold the information of the mechanical system & \\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Mechanical View
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Mechanical View}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 DIsplay the mechanical system to the user & Mechanical Controller\\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Mechanical Controller
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Mechanical Controller}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		Updates subsystem information after tool usage & Mechanical Model, Overall Controller\\
+		\hline
+		 Tells system of subsystem information & Mechanical Model, Overall Controller\\
+		\hline
+		 Indicate to the view what to display & Mechanical Model, Mechanical View\\
+		\hline
+		 Generate the stimulation based on a time & Overall Controller \\
+		\hline
+		\end{tabular}
+	\end{table}
+
 \end{enumerate}
 % End Section
 
