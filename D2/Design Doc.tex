@@ -1,4 +1,5 @@
-\documentclass[]{article}
+\documentclass[12pt, titlepage]{article}
+\usepackage{graphicx}
 
 % Imported Packages
 %------------------------------------------------------------------------------
@@ -23,16 +24,26 @@
 
 % Title Details
 %------------------------------------------------------------------------------
-\title{Deliverable \#2 Template}
-\author{SE 3A04: Software Design II -- Large System Design}
-\date{}                               
+\title{SE 3A04: Software Design III: Large System Design}
+\author{Group \#5, Spaceship System Sabotage %Alliteration; always adored and absolutely amazing
+		\\Pareek Ravi 001407109
+		\\Pavle Arezina 001410366
+		\\David Hobson 001412317
+		\\Victoria Graff 001401451
+		\\Julian Cassano 001406891
+}
+\date{\today}                               
 %------------------------------------------------------------------------------
 
 % Document
 %------------------------------------------------------------------------------
 \begin{document}
-
 \maketitle	
+\pagenumbering{arabic}
+\tableofcontents
+\listoftables
+\listoffigures
+\newpage
 
 \section{Introduction}
 \label{sec:introduction}
@@ -71,20 +82,25 @@ This section should provide an brief overview of the entire document.
 \section{Use Case Diagram}
 \label{sec:use_case_diagram}
 % Begin Section
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=120mm]{UseCase.jpg}
+\caption{Use Case Diagram \label{usecase}}
+\end{figure}
 SHOW THE USE CASE DIAGRAM AND THEN EXPLAIN EACH SCENARIO
 \begin{enumerate}[a)]
-	\item End Simulation: 
-	\item Start Simulation:
-	\item Pause Simulation:
-	\item Resume Simulation:
-	\item View Overall System:
-	\item View Power System:
-	\item View Oxygen System:
-	\item View Mechanical System:
-	\item Fix Crisis: 
-	\item Power Simulation:
-	\item Oxygen Simulation:
-	\item Mechanical Simulation:
+	\item End Simulation: The user is in a play session and intends to indefinitely stop the simulation and return to the main menu.
+	\item Start Simulation: The user is in the main menu and intends to begin a play session.
+	\item Pause Simulation: The user is in a play session and intends to stop the simulation but intends to resume at a later time.
+	\item Resume Simulation: The user is in a paused play session and intends to resume and continue the simulation.
+	\item View Overall System: The user is in a play session and intends to display the status of all the subsystems at once.
+	\item View Power System: The user is in a play session and intends to include the status of the Power System in the displayed view.
+	\item View Oxygen System: The user is in a play session and intends to include the status of the Oxygen System in the displayed view.
+	\item View Mechanical System: The user is in a play session and intends to include the status of the Mechanical System in the displayed view.
+	\item Fix Crisis: The user is in a play session and intends to resolve an event that is negatively affecting one of the subsystems.
+	\item Fix Power: The user is in a fix crisis event and intends to resolve an event affecting the power system.
+	\item Fix Oxygen: The user is in a fix crisis event and intends to resolve an event affecting the oxygen system.
+	\item Fix Mechanical: The user is in a fix crisis event and intends to resolve an event affecting the mechanical system.
 \end{enumerate}
 % End Section
 
