@@ -1,0 +1,524 @@
+\documentclass[12pt, titlepage]{article}
+\usepackage{geometry}
+\usepackage{changepage}
+\usepackage{enumerate}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\title{SE 3A04: Software Design III: Large System Design}
+\author{Group \#5, Spaceship System Sabotage %Alliteration; always adored and absolutely amazing
+		\\Pareek Ravi 001407109
+		\\Pavle Arezina 001410366
+		\\David Hobson 001412317
+		\\Victoria Graff 001401451
+		\\Julian Cassano 001406891
+}
+\date{\today}
+\begin{document}
+\maketitle
+\pagenumbering{roman}
+\tableofcontents
+\listoftables
+%\listoffigures
+
+\newpage
+\pagenumbering{arabic}
+
+\section{Introduction}
+\label{sec:introduction}
+% Begin Section
+
+
+\subsection{Purpose}
+\label{sub:purpose}
+% Begin SubSection
+\tab The purpose of the software requirements specification for this project is to document the results of the analysis of the requirements pertaining to this project. This document will demonstrate the mutual understanding of the problem to be solved and what the eventual system will be tested against to ensure that the project fulfilled its objectives. The document has an important role in laying down the foundation of what the rest of the project will be built off of. The intended audience of the software requirements specification is for the software developers, researchers, and advanced users who would be involved and interested in the basis of how the project's development was determined. It allows the specified groups of people to understand the reasoning behind the decisions made in regards to the project.
+% End SubSection
+
+\subsection{Scope}
+\label{sub:scope}
+% Begin SubSection
+\tab The application being developed, called Spaceship System Sabotage, is a simulation of a fictional spaceship that the user will interact with to ensure the spaceship reaches the objective of the simulation. An engaging and entertaining experience will be provided to the user in a real-time simulator that will provide various challenges for the user to overcome. It will not simulate realistic physics or be restricted to non-fictional material. Spaceship System Sabotage is a purely entertainment application that responds to the users stimuli in response to various events. This will provide a satisfying experience to the user that will ensure the user's interest is held. It is not meant to frustrate the user into not utilizing the application anymore but to keep Spaceship System Sabotage challenging enough to ensure the user is not bored.
+% End SubSection
+\\\\\\\\\\\\\\\\\\\\
+\subsection{Definitions, Acronyms, and Abbreviations}
+\label{sub:definitions_acronyms_and_abbreviations}
+% Begin SubSection
+\begin{table}[h!]
+\centering
+\caption{\bf Table of Acronyms, Abbreviations, and Symbols}
+
+
+\centering
+\caption{\bf Table of Definitions}
+
+\begin{tabular}{|c|c|}
+\hline
+{\bf Term} & {\bf Definition}\\
+\hline
+{Sabotage} & {Deliberately destroy, damage, or obstruct (something)}\\
+{} & {}\\
+\hline
+{Defector} & {A person who has abandoned their country or cause in favor of an opposing one}\\
+{} & {}\\
+\hline
+{Lore} & {The story or reasoning behind occurances. }\\
+{} & {}\\
+\hline
+{TA} & {Teaching Assistant to the professor of an university.}\\
+{} & {}\\
+\hline
+{Android OS} & {The operating system on phones that run Android}\\
+{} & {}\\
+\hline
+\end{tabular}
+
+\end{table}
+% End SubSection
+\newpage
+\subsection{References}
+\label{sub:references}
+\emph{none}
+
+\subsection{Overview}
+\label{sub:overview}
+% Begin SubSection
+\tab The rest of the SRS is separated into three sections, the first being the overall description of the project. This section describes the general factors that affect the product and its requirements. It does not state specific requirements; it provides a background for those requirements and makes them easier to understand. Functional requirements are the next section which contain a sufficient level of detail to enable designers to design a system to satisfy all the requirements stated. These requirements specify what the project must do and describe the actions that the product must perform and works as intended. The last section of the SRS is the non-functional requirements which also assist in guiding developers in what the final state of the product is. An appendix is also included to the SRS that clearly states how the division of labour was between the software developers in the project.
+% End SubSection
+
+% End Section
+
+\section{Overall Description}
+\subsection{Product Perspective}
+\tab Spaceship System Sabotage is an independent and self-contained system that simulates a spaceship. The typical user experience with this application is to keep the system operating for as long as possible so that after a specified period of time the space craft will "reach its intended destination" and the user will reach an end state through a win condition. This perspective on the interaction of sub-systems will make the application feel more like a game than it does a simulation. When a sub-system is triggered with a stimulus, eventually leading to a sub-system failure, the application will tell the user that one of the crew members of the ship has  \textbf{sabotaged} a sub-system. This acts as a challenge for the user to keep the crew members alive but attempt to determine who the \textbf{defector} of the crew is, providing  \textbf{lore} and context for the simulated sub-system failure so that the user has motivation to keep the system functional.
+
+\subsection{Product Functions}
+\begin{itemize}
+\item The user will be able to start a simulation of a system
+\item The different sub-systems will be displayed for the user
+\item The user will be able to switch views to choose the sub-system they are observing
+\item The system will allows the user to combine views
+\item Messages/alerts will be displayed for the user
+\item The sub-systems will be able to receive stimulus from the application to prompt a status change
+\item The sub-systems will be able to affect other sub-systems depending on their status
+\item The user will be able to input a stimulus that will have a specified effect on a sub-system, namely a status change back to the original state
+\item The user will be able to pause/resume the system
+\item The simulation will be able to reach an end state at any time and terminate the simulation
+\item The user will be able to end the simulation at any time if they so choose
+\end{itemize}
+
+\subsection{User Characteristics}
+\tab The intended user of this application is anyone who enjoys games or challenges and has a basic understanding of systems and how they can interact. No previous work or school experience with designing systems is required as this application is not a test on the user's understanding of software architecture. This application aims to provide a casual experience of simulating the negative effects of sub-systems failing in a larger system and allows the user to have a role in this scenario regardless of failure or not. Each end state is an acceptable level of completion in terms of the simulation as they both result in a demonstration of the interaction between sub-systems. This means that the application is accessible to anyone from casual players in elementary school to Dr. Khedri while he's killing time waiting for his  \textbf{TAs} to mark these deliverables.
+
+\subsection{Constraints}
+\tab The limitations of this project come in the form of development time. The allocated amounts of hours that we intend to dedicate to this project are in negative correlation with the amount of other school work we have to do during the timeframes of each deliverable. We would love to make this a full fleshed out game that is fun and challenging but at the moment we do not have the time to comfortably introduce enough additional features to make this a fun to play, sellable game. The rubric specified by the  \textbf{TAs} will first and foremost be followed, and only then can additional features be added. \\
+\\ \tab Another limitation of this project would be the programming language chosen for the application. Depending on what language the development takes place in, certain features would be more difficult to implement in the amount of time given. For example, our team is more experienced in Java and may be more proficient in meeting the functional requirements with this language but it may be harder to meet the non-functional requirements, especially in terms of visual interfacing compared to working in a language like C++.
+
+\subsection{Assumptions and Dependencies}
+\tab The assumptions in the requirements section of this document are focused around the intended interface of the application. The proposed layout of the visual interface is that the sub-systems will be laid out in a representation of their location in physical space, meaning that there will appear to be a space craft in the user's view and all of the interactions will happen through this apparent view. This also means that sub-systems will be layered on top of each other and will be difficult to view all at once, hence the requirement that the user will be able to change views and customize the sub-systems being displayed at one time.
+
+\subsection{Apportioning of Requirements}
+\tab Some non-functional requirements that could take too long to implement and are not explicitly required for a functional demonstration may be delayed until later versions of the application. Some areas of development where this is a concern are the low loading times and the "clean" interface design.
+%In version 1.1 we'll include a game mode where the creators of FTL sue us
+
+\section{Functional Requirements}
+\label{sec:functional_requirements}
+% Begin Section
+
+
+\begin{enumerate}[{BE}1.]
+	\item User wants to combine the views of multiple sub-systems
+	\begin{enumerate}[{VP1}.1]
+		\item User
+			\begin{enumerate}
+				\item The system will provide an interface for the user to interact with when combing views
+				\item The system will allow the user to select views to be combined
+				\item The system will display the combined views in a layered format
+				\item The system will be able to support any amount of views to be combined.
+			\end{enumerate}
+	\end{enumerate}
+	
+	\item User wants to add a sub-system view
+	\begin{enumerate}[{VP2}.1]
+		\item User
+			\begin{enumerate}
+				\item The system will provide an interface for the user to interact with when adding views
+				\item The system will allow the user to select a view to be shown on the system
+			\end{enumerate}
+	\end{enumerate}
+	
+	\item User wants to remove a sub-system
+	\begin{enumerate}[{VP3}.1]
+		\item User
+			\begin{enumerate}
+				\item The system will provide an interface for the user to interact with when removing views
+				\item The system will allow the user to select a view to be removed from the system
+			\end{enumerate}
+	\end{enumerate}
+	
+	\item User wants to stimulate a subsystem
+	\begin{enumerate}[{VP4}.1]
+		\item User
+			\begin{enumerate}
+				\item The system will provide an interface for the user to interact with different sub-systems and be able to select a particular sub-system
+				\item The system must display the result of when the stimulus takes place
+			\end{enumerate}
+	\end{enumerate}
+	
+	\item User wants to start the system
+	\begin{enumerate}[{VP5}.1]
+		\item User
+			\begin{enumerate}
+				\item System must provide an interface to allow the user to start the overall system
+				\item System must provide an option for selecting 3 or more sub-systems to have enabled
+				\item System must display only the overall system and none of the sub systems
+			\end{enumerate}
+	\end{enumerate}
+	
+	\item User wants to pause the system
+	\begin{enumerate}[{VP6}.1]
+		\item User
+			\begin{enumerate}
+				\item System must provide an interface to pause the system
+				\item System must provide a means to alter the game settings
+				\item System must display the current state of all the sub-systems
+			\end{enumerate}
+	\end{enumerate}
+	
+	\item User wants to resume the system
+	\begin{enumerate}[{VP7}.1]
+		\item User
+			\begin{enumerate}
+				\item System must provide an interface to resume the system
+				\item The system must resume to the exact state before it was paused
+				\item The system must display the same set of sub systems as it was before pausing
+			\end{enumerate}
+	\end{enumerate}
+	
+	\item User wants to end the system
+	\begin{enumerate}[{VP8}.1]
+		\item User
+			\begin{enumerate}
+				\item System must provide an interface to allow the user to end the overall system
+				\item System must show the final state of all the sub-systems
+				\item System must provide an option for the user to restart the system from initial conditions
+			\end{enumerate}
+	\end{enumerate}
+	
+	\item Random Time Stimuli to the System
+	\begin{enumerate}[{VP9}.1]
+		\item User
+			\begin{enumerate}
+				\item System must stimulate a sub-system with a random event defined by parameters
+				\item System must determine the event based on a weighted system to determine which event will be simulated from a set of events
+				\item System must display the stimulus and display a text description of the stimulus
+				\item System must clearly indicated the region of the system affected by the stimulus
+			\end{enumerate}
+	\end{enumerate}
+	
+	
+\end{enumerate}
+
+
+
+\section{Non-Functional Requirements}
+\label{sec:non-functional_requirements}
+% Begin Section
+\subsection{Look and Feel Requirements}
+\label{sub:look_and_feel_requirements}
+% Begin SubSection
+
+\subsubsection{Appearance Requirements}
+\label{ssub:appearance_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{LF}1. ]
+	\item The application shall have a clean, minimalistic user interface. The systems on the ship will be colour coded and easy to differentiate on the map.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Style Requirements}
+\label{ssub:style_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{LF}2. ]
+	\item The application shall have smooth transitions while responding to user input. 
+\end{enumerate}
+% End SubSubSection
+
+% End SubSection
+
+\subsection{Usability and Humanity Requirements}
+\label{sub:usability_and_humanity_requirements}
+% Begin SubSection
+
+\subsubsection{Ease of Use Requirements}
+\label{ssub:ease_of_use_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{UH}1. ]
+	\item The application shall be simple to use for all users above the age of twelve. A new user shall be able to navigate through menus and play the game with ease.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Personalization and Internationalization Requirements}
+\label{ssub:personalization_and_internationalization_requirements}
+\emph{none}
+
+\subsubsection{Learning Requirements}
+\label{ssub:learning_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{UH}2. ]
+	\item The learning time within the application shall take no longer than five minutes.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Understandability and Politeness Requirements}
+\label{ssub:understandability_and_politeness_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{UH}3. ]
+	\item The application will be easy to understand and will refrain from inappropriate language or slang words.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Accessibility Requirements}
+\label{ssub:accessibility_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{UH}4. ]
+	\item The application will be playable for the hearing impaired.
+\end{enumerate}
+% End SubSubSection
+
+% End SubSection
+
+\subsection{Performance Requirements}
+\label{sub:performance_requirements}
+% Begin SubSection
+
+\subsubsection{Speed and Latency Requirements}
+\label{ssub:speed_and_latency_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{PR}1. ]
+	\item The application shall update systems from user input in under 5 seconds, and load time between screens shall be under 5 second.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Safety-Critical Requirements}
+\label{ssub:safety_critical_requirements}
+\emph{none}
+
+\subsubsection{Precision or Accuracy Requirements}
+\label{ssub:precision_or_accuracy_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{PR}2. ]
+	\item The touch user input on the application will have 90 percent accuracy.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Reliability and Availability Requirements}
+\label{ssub:reliability_and_availability_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{PR}1. ]
+	\item The application shall be available at all times.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Robustness or Fault-Tolerance Requirements}
+\label{ssub:robustness_or_fault_tolerance_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{PR}3. ]
+	\item The application will be designed to handle all selection errors by the user.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Capacity Requirements}
+\label{ssub:capacity_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{PR}4. ]
+	\item The application will be able to handle input from one user.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Scalability or Extensibility Requirements}
+\label{ssub:scalability_or_extensibility_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{PR}5. ]
+	\item The application will be created to be able to integrate more space ship systems in the future.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Longevity Requirements}
+\label{ssub:longevity_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{PR}6. ]
+	\item The application will operate as long as the  \textbf{Android OS} version it is created on, is supported.
+\end{enumerate}
+% End SubSubSection
+
+% End SubSection
+
+\subsection{Operational and Environmental Requirements}
+\label{sub:operational_and_environmental_requirements}
+% Begin SubSection
+
+\subsubsection{Expected Physical Environment}
+\label{ssub:expected_physical_environment}
+% Begin SubSubSection
+\begin{enumerate}[{OE}1. ]
+	\item The application will run on Android smartphones.
+	\item The application shall be used at any location.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Requirements for Interfacing with Adjacent Systems}
+\label{ssub:requirements_for_interfacing_with_adjacent_systems}
+% Begin SubSubSection
+\emph{none}
+
+\subsubsection{Productization Requirements}
+\label{ssub:productization_requirements}
+\emph{none}
+
+\subsubsection{Release Requirements}
+\label{ssub:release_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{OE}3. ]
+	\item The application will be downloadable through the Google Play Application store.
+\end{enumerate}
+% End SubSubSection
+
+% End SubSection
+
+\subsection{Maintainability and Support Requirements}
+\label{sub:maintainability_and_support_requirements}
+% Begin SubSection
+
+\subsubsection{Maintenance Requirements}
+\label{ssub:maintenance_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{MS}1. ]
+	\item The application shall be built through modular design for easy maintenance and for updating features in the future.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Supportability Requirements}
+\label{ssub:supportability_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{MS}2. ]
+	\item The application will only run on android smartphones.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Adaptability Requirements}
+\label{ssub:adaptability_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{MS}3. ]
+	\item The application will be designed to be able to re-format to fit all android phone screen sizes.
+\end{enumerate}
+% End SubSubSection
+
+% End SubSection
+
+\subsection{Security Requirements}
+\label{sub:security_requirements}
+% Begin SubSection
+
+\subsubsection{Access Requirements}
+\label{ssub:access_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{SR}1. ]
+	\item The application will be availability to users that own an android smartphone.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Integrity Requirements}
+\label{ssub:integrity_requirements}
+\emph{none}
+
+\subsubsection{Privacy Requirements}
+\label{ssub:privacy_requirements}
+\emph{none}
+
+\subsubsection{Audit Requirements}
+\label{ssub:audit_requirements}
+\emph{none}
+
+\subsubsection{Immunity Requirements}
+\label{ssub:immunity_requirements}
+\emph{none}
+
+% End SubSection
+
+\subsection{Cultural and Political Requirements}
+\label{sub:cultural_and_political_requirements}
+% Begin SubSection
+
+\subsubsection{Cultural Requirements}
+\label{ssub:cultural_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{CP}1. ]
+	\item The application will display language in the English language and will avoid mention or assumption of any specific culture.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Political Requirements}
+\label{ssub:political_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{CP}2. ]
+	\item The application will not mention any political topics or issues.
+\end{enumerate}
+% End SubSubSection
+
+% End SubSection
+
+\subsection{Legal Requirements}
+\label{sub:legal_requirements}
+% Begin SubSection
+
+\subsubsection{Compliance Requirements}
+\label{ssub:compliance_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{LR}1. ]
+	\item The application shall adhere to all compliance laws in Ontario, Canada.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Standards Requirements}
+\label{ssub:standards_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{LR}2. ]
+	\item The application shall adhere to all standards laws in Ontario, Canada.
+\end{enumerate}
+% End SubSubSection
+
+% End SubSection
+
+% End Section
+\appendix
+\section{Division of Labour}
+\label{sec:division_of_labour}
+% Begin Section
+\begin{table}[h!]
+\centering
+
+\begin{tabular}{|c|c|c|}
+\hline
+{\bf Member} & {\bf Duties}&{\bf Signature}\\
+\hline
+{David Hobson} & {Functional Requirments } & {  \tab \tab \tab \tab}\\
+{} & {Editing}  & {}\\
+\hline
+{Pavle Arezina} & {Introduction} & {}\\
+{} & {Editing} & {}\\
+\hline
+{Pareek Ravi} & {Functional Requirments} & {}\\
+{} & {} & {}\\
+\hline
+{Victoria Graff} & {Non-functional Requirments} & {}\\
+{} & {} & {}\\
+\hline
+{Julian Cassano} & {Overall Description} & {}\\
+{} & {} & {}\\
+\hline
+\end{tabular}
+
+\end{table}
+% End Section
+
+
+\end{document}
