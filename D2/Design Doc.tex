@@ -122,12 +122,13 @@ This section should provide an overview of the overall architectural design of y
 \subsection{System Architecture}
 \label{sub:system_architecture}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Identify and explain the overall architecture of your system
-	\item Be sure to clearly state the name of the architecture
-	\item Provide the reasoning and justification of the choice
-	\item Provide a structural architecture diagram showing the relationship among the subsystems (if appropriate)
-\end{enumerate}
+The main controller of the system is the primary interaction point for all classes. Every time a use case event is instantiated, the main controller will be prompted to interact with the specific class that is associated with the attempted performed action. This means that each class that can return values will be dependent on the main controller in order to receive a prompt at the correct time. The system is a presentation-abstraction-control (PAC) architecture, being similar to MVC but not identical. The reason this architecture style was chosen is because we wanted each section of the architecture to only interact through the controller, to reduce conflict and clutter in the classes. The following diagram shows the main controller interacting with each set of classes individually, with no interaction directly between classes.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.5]{"Overall Architecture".jpg}
+  \caption{Structural architecture diagram for the PAC system.}
+\end{figure}
 % End SubSection
 
 \subsection{Subsystems}
