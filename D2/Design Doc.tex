@@ -21,7 +21,9 @@
 %------------------------------------------------------------------------------
 \pagestyle{plain}  
 \renewcommand\headrulewidth{0.4pt}                                      
-\renewcommand\footrulewidth{0.4pt}                                    
+\renewcommand\footrulewidth{0.4pt}                    
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}                
 %------------------------------------------------------------------------------
 
 % Title Details
@@ -51,32 +53,21 @@
 \label{sec:introduction}
 % Begin Section
 
-This section should provide an brief overview of the entire document.
 
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Delineate the purpose of the document
-	\item Specify the intended audience for the document
-\end{enumerate}
+\tab The Large System Design document is responsible for the high level architecture design of the system and the results produced from this analysis will be utilized in the design phase. The document is derived from the requirements and specifications of the overall system, determined in the previous software requirement specification document. The intended audience of the document is mainly for the developers who will be utilizing the large system design document to understand the overall design of the program to help structure the responsibilities assigned to each class. Developers who are maintaining the program may also use the document to ensure new additions to the program follow the system design properly to ensure a smooth experience for the user.
 % End SubSection
 
 \subsection{System Description}
 \label{sub:system_description}
-% Begin SubSection
-\begin{enumerate}[a)]
-	\item Give a brief description of the system. This could be a paragraph or two to give some context to this document.
-\end{enumerate}
+\tab Space system sabotage is a simulation of a fictional spaceship that is travelling to a pre-determined location in a fixed amount of time. The user will interact with the system through random events based on a function of the running time of the simulation. Random events will involve negative situations that occur, such as comets damaging the ship or part of the ship being sabotaged, where the user will have to respond to fix them in a timely manner with a selection of tools. If successful, the space ship continues toward its goal but if an incorrect solution was chosen then the problem is spread to other systems. If enough events happen with incorrect solutions to them, then the space ship will slowly spiral out of control and the user will fail the simulation. This system offers an entertaining environment to the user where they will be challenged to keep the spaceship intact until it dock import at the space station.
 % End SubSection
 
 \subsection{Overview}
 \label{sub:overview}
-% Begin SubSection
-\begin{enumerate}[a)]
-	\item Describe what the rest of the document contains 
-	\item Explain how the document is organised
-\end{enumerate}
+\tab The rest of the Large System Design document is separated into four sections, the first being the use case diagram. This diagram models the functionality of the system using actors, the users of the system, and use cases of the system. The next section is the analysis class diagram which describes the key classes of a system and their interrelationship through boundary class, entity classes, and controller classes. These classes of the system are identified by extracting through the description of the use case descriptions.  Section three should provide an overview of the overall architectural design of the application where the division of the system into subsystems follows high cohesion and low coupling. Last section is the Class Responsibility Collaborator (CRC) cards on the classes in the analysis class diagram where each card identifies and assigns responsibilities to classes required to build the system. After these four sections there is an appendix that includes the division of labour.
 % End SubSection
 
 % End Section
@@ -89,11 +80,11 @@ This section should provide an brief overview of the entire document.
 \includegraphics[width=120mm]{UseCase.jpg}
 \caption{Use Case Diagram \label{usecase}}
 \end{figure}
-SHOW THE USE CASE DIAGRAM AND THEN EXPLAIN EACH SCENARIO
+\subsection*{Use Case Definitions}
 \begin{enumerate}[a)]
 	\item End Simulation: The user is in a play session and intends to indefinitely stop the simulation and return to the main menu.
 	\item Start Simulation: The user is in the main menu and intends to begin a play session.
-	\item Pause Simulation: The user is in a play session and intends to stop the simulation but intends to resume at a later time.
+	\item Pause Simulation: The user is in a play session and intends to pause the simulation but intends to resume at a later time.
 	\item Resume Simulation: The user is in a paused play session and intends to resume and continue the simulation.
 	\item View Overall System: The user is in a play session and intends to display the status of all the subsystems at once.
 	\item View Power System: The user is in a play session and intends to include the status of the Power System in the displayed view.
