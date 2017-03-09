@@ -1,0 +1,15 @@
+*.pdf
+
+# LaTex Files #
+###############
+*.aux
+*.log
+*.gz
+*.dvi
+*.bbl
+*.out
+*.lof
+*.lot
+*.toc
+*.blg
+
