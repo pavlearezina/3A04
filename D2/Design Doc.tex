@@ -111,18 +111,21 @@
 \section{Architectural Design}
 \label{sec:architectural_design}
 % Begin Section
-This section should provide an overview of the overall architectural design of your application. You overall architecture should show the division of the system into subsystems with high cohesion and low coupling.
 
 \subsection{System Architecture}
 \label{sub:system_architecture}
 % Begin SubSection
-The main controller of the system is the primary interaction point for all classes. Every time a use case event is instantiated, the main controller will be prompted to interact with the specific class that is associated with the attempted performed action. This means that each class that can return values will be dependent on the main controller in order to receive a prompt at the correct time. The system is a presentation-abstraction-control (PAC) architecture, being similar to MVC but not identical. The reason this architecture style was chosen is because we wanted each section of the architecture to only interact through the controller, to reduce conflict and clutter in the classes. The following diagram shows the main controller interacting with each set of classes individually, with no interaction directly between classes.
+\tab The overall architecture utilized in this project is the presentation-abstraction-control (PAC) architecture, essentially a hierarchical structure made out of model-view-controller (MVC) blocks. PAC architecture is an interaction orientated software architecture that was developed from MVC to support the application requirement of multiple agents in addition to the interactive application requirements. Each agent has a control module that plays an active role, where the model and view module are separated which entails the sub-system architecture. The multiple agents are ordered in a hierarchy where the controller components communicated in a well-structured method. It is very suitable for any distributed system where each remote agent has its own functionalities with data and interactive interface. \\ \\
+\tab With the analysis class diagram, it was determined that the architecture needed to follow high coupling and low cohesion design principle with a requirement of sub-systems to be able to be easily detached from the overall system. By striving to implement the first design principle mentioned coupled with exploring the ways the user will be able to utilize the system, it became clear that structure similar to MVC would be utilized to create the architecture of the program. With self-contained modules that can be easily detached from the system needed to fulfill user requirements, it became apparent that some sort of hierarchical system would be utilized where small units of MVC sub-systems can be added and removed when needed. Clearly the PAC 	architecture is well suited for this system where it allows multi-viewing of agents, easy to plug in new agent or replace existing agent. 
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[scale=0.5]{"Overall Architecture".jpg}
-  \caption{Structural architecture diagram for the PAC system.}
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=120mm]{"Analysis Class Diagram Grouped".jpg}
+\caption{Analysis Class Diagram of System Grouped \label{analysisclassg}}
 \end{figure}
+
+
+
 % End SubSection
 
 \subsection{Subsystems}
@@ -133,9 +136,15 @@ The main controller of the system is the primary interaction point for all class
 \item The oxygen subsystem controls all of the interactions that relate to the simulated amount of air in the system and is dependent on the main controller. This subsystem can "malfunction" and must be stimulated to return to base state.
 \item The mechanical subsystem controls all of the interactions that relate to the simulated physical moving parts in the system and is dependent on the main controller. This subsystem can "malfunction" and must be stimulated to return to base state.
 \item The tool subsystem controls all of the interactions that will "fix" the other simulated subsystems and return them to normal state.
-\item The menu subsystem controls all interactions outside of the play session and will allow the user to performa actions such as pausing, resuming, or quitting the play session.
-\item The main controller subsystem is the main hub of interaction between all other subsystems and will apporpriately stimulate each subsystem at the correct time. This subsystem receives input from all other subsystems and returns the output back to each system to determine what will happen in the simulation.
+\item The menu subsystem controls all interactions outside of the play session and will allow the user to perform actions such as pausing, resuming, or quitting the play session.
+\item The main controller subsystem is the main hub of interaction between all other subsystems and will appropriately stimulate each subsystem at the correct time. This subsystem receives input from all other subsystems and returns the output back to each system to determine what will happen in the simulation.
 \end{itemize}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.5]{"Overall Architecture".jpg}
+  \caption{Structural Architecture Diagram for the PAC system.}
+\end{figure}
 % End SubSection
 
 % End Section
@@ -143,11 +152,8 @@ The main controller of the system is the primary interaction point for all class
 \section{Class Responsibility Collaboration (CRC) Cards}
 \label{sec:class_responsibility_collaboration_crc_cards}
 % Begin Section
-This section should contain all of your CRC cards.
 
-\begin{enumerate}[a)]
-	\item Provide a CRC Card for each identified class
-	\item Please use the format outlined in tutorial, i.e., 
+
 
 %Start Screen	
 	\begin{table}[H]
@@ -575,14 +581,13 @@ This section should contain all of your CRC cards.
 		\end{tabular}
 	\end{table}
 
-\end{enumerate}
+
 % End Section
 
 \appendix
 \section{Division of Labour}
 \label{sec:division_of_labour}
 % Begin Section
-Include a Division of Labour sheet which indicates the contributions of each team member. This sheet must be signed by all team members.
 % End Section
 \begin{table}[h!]
 \centering
@@ -592,45 +597,26 @@ Include a Division of Labour sheet which indicates the contributions of each tea
 \hline
 {\bf Member} & {\bf Duties}&{\bf Signature}\\
 \hline
-{David Hobson} & { } & { }\\
-{} & {}  & {}\\
+{David Hobson} & {Analysis Class Diagram } & { }\\
+{} & {System Architecture}  & {}\\
+{} & {Editing} & {}\\
 \hline
-{Pavle Arezina} & {} & {}\\
+{Pavle Arezina} & {Introduction} & {}\\
+{} & {System Architecture} & {}\\
+{} & {Editing} & {}\\
+\hline
+{Pareek Ravi} & {CRC Cards} & {}\\
 {} & {} & {}\\
 \hline
-{Pareek Ravi} & {} & {}\\
-{} & {} & {}\\
+{Victoria Graff} & {CRC Cards} & {}\\
+{} & {Use Case Diagram} & {}\\
 \hline
-{Victoria Graff} & {} & {}\\
-{} & {} & {}\\
-\hline
-{Julian Cassano} & {} & {}\\
-{} & {} & {}\\
+{Julian Cassano} & {System Architecture} & {}\\
+{} & {Use Case Diagram} & {}\\
 \hline
 \end{tabular}
 
 \end{table}
-
-\newpage
-\section*{IMPORTANT NOTES}
-\begin{itemize}
-%	\item You do \underline{NOT} need to provide a text explanation of each diagram; the diagram should speak for itself
-	\item Please document any non-standard notations that you may have used
-	\begin{itemize}
-		\item \emph{Rule of Thumb}: if you feel there is any doubt surrounding the meaning of your notations, document them
-	\end{itemize}
-	\item Some diagrams may be difficult to fit into one page
-	\begin{itemize}
-		\item It is OK if the text is small but please ensure that it is readable when printed
-		\item If you need to break a diagram onto multiple pages, please adopt a system of doing so and thoroughly explain how it can be reconnected from one page to the next; if you are unsure about this, please ask about it
-	\end{itemize}
-	\item Please submit the latest version of Deliverable 1 with Deliverable 2
-	\begin{itemize}
-		\item It does not have to be a freshly printed version; the latest marked version is OK
-	\end{itemize}
-	\item If you do \underline{NOT} have a Division of Labour sheet, your deliverable will \underline{NOT} be marked
-\end{itemize}
-
 
 \end{document}
 %------------------------------------------------------------------------------
