@@ -148,23 +148,11 @@ This section should contain all of your CRC cards.
 \begin{enumerate}[a)]
 	\item Provide a CRC Card for each identified class
 	\item Please use the format outlined in tutorial, i.e., 
-	\begin{table}[ht]
-		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
-		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:}} \\
-		\hline
-		\textbf{Responsibility:} & \textbf{Collaborators:} \\
-		\hline
-		\vspace{1in} & \\
-		\hline
-		\end{tabular}
-	\end{table}
 
 %Start Screen	
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Start Screen}} \\
 		\hline
@@ -184,7 +172,7 @@ This section should contain all of your CRC cards.
 %End Screen	
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: End Screen}} \\
 		\hline
@@ -204,7 +192,7 @@ This section should contain all of your CRC cards.
 %Pause Screen	
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Pause Screen}} \\
 		\hline
@@ -224,7 +212,7 @@ This section should contain all of your CRC cards.
 %Success Screen	
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Success Screen}} \\
 		\hline
@@ -240,7 +228,7 @@ This section should contain all of your CRC cards.
 %Failure Screen	
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Failure Screen}} \\
 		\hline
@@ -252,11 +240,39 @@ This section should contain all of your CRC cards.
 		\hline
 		\end{tabular}
 	\end{table}	
+	
+% Menu Controller
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{10cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Menu Controller}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 Receive request to pause or unpause game & Pause Screen\\
+		\hline
+		 Receive request to end game & End Screen\\
+		\hline
+		 Receive request to start game & Start Screen\\
+		\hline
+		Send request to start game, end game or pause game & Overall Controller\\
+		\hline
+		Receive request to start, end or pause game & Overall Controller\\
+		\hline
+		Send request to start game & Start Screen\\
+		\hline
+		Send request to end game & End Screen\\
+		\hline
+		Send request to pause game & Pause Screen\\
+		\hline
+		\end{tabular}
+	\end{table}
 
 %Choose Tool
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Choose Tool}} \\
 		\hline
@@ -272,7 +288,7 @@ This section should contain all of your CRC cards.
 %Tool Fail
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Tool Fail}} \\
 		\hline
@@ -286,7 +302,7 @@ This section should contain all of your CRC cards.
 %Tool Success
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Tool Success}} \\
 		\hline
@@ -300,7 +316,7 @@ This section should contain all of your CRC cards.
 %Event Alert
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Event Alert}} \\
 		\hline
@@ -314,7 +330,7 @@ This section should contain all of your CRC cards.
 %Event Timer
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Event Timer}} \\
 		\hline
@@ -328,7 +344,7 @@ This section should contain all of your CRC cards.
 %Tool Controller
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Tool Controller}} \\
 		\hline
@@ -348,7 +364,7 @@ This section should contain all of your CRC cards.
 %Power Model
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Power Model}} \\
 		\hline
@@ -362,7 +378,7 @@ This section should contain all of your CRC cards.
 %Power View
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Power View}} \\
 		\hline
@@ -378,7 +394,7 @@ This section should contain all of your CRC cards.
 %Power Controller
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Power Controller}} \\
 		\hline
@@ -398,7 +414,7 @@ This section should contain all of your CRC cards.
 %Oxygen Model
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Oxygen Model}} \\
 		\hline
@@ -412,7 +428,7 @@ This section should contain all of your CRC cards.
 %Oxygen View
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Oxygen View}} \\
 		\hline
@@ -428,7 +444,7 @@ This section should contain all of your CRC cards.
 %Oxygen Controller
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Oxygen Controller}} \\
 		\hline
@@ -448,7 +464,7 @@ This section should contain all of your CRC cards.
 %Mechanical Model
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Mechanical Model}} \\
 		\hline
@@ -462,7 +478,7 @@ This section should contain all of your CRC cards.
 %Mechanical View
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Mechanical View}} \\
 		\hline
@@ -478,7 +494,7 @@ This section should contain all of your CRC cards.
 %Mechanical Controller
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Mechanical Controller}} \\
 		\hline
@@ -498,7 +514,7 @@ This section should contain all of your CRC cards.
 %Overall View
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Overall View}} \\
 		\hline
@@ -516,23 +532,7 @@ This section should contain all of your CRC cards.
 %Timer
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
-		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name: Overall View}} \\
-		\hline
-		\textbf{Responsibility:} & \textbf{Collaborators:} \\
-		\hline
-		 Pause game & Overall Controller \\
-		\hline
-		 Keep track of game time & Overall Controller\\
-		\hline
-		\end{tabular}
-	\end{table}
-
-%Timer
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Main Timer}} \\
 		\hline
@@ -548,7 +548,7 @@ This section should contain all of your CRC cards.
 %Overall Controller
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Overall Controller}} \\
 		\hline
