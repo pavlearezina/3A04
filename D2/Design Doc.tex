@@ -262,7 +262,9 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 A view for the user the select the tool they wish to use to fix the issue on the spaceship & Tool Controller\\
+		 Get user input of tool they want to use & Tool Controller\\
+		\hline
+		 Display the the tools the user has the option of using & Tool Controller \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -276,7 +278,7 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 A view to show the user that they chose the wrong tool to fix the issue & Tool Controller\\
+		 Display to user that they chose the wrong tool & Tool Controller\\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -290,7 +292,7 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 A view to show the user that they chose the correct tool to fix the issue & Tool Controller\\
+		 Display to user that they chose the correct tool & Tool Controller\\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -366,7 +368,9 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 DIsplay the power system to the user & Power Controller\\
+		 User wants to show view & Power Controller\\
+		\hline
+		User wants to hide view & Power Controller\\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -384,7 +388,7 @@ This section should contain all of your CRC cards.
 		\hline
 		 Tells system of subsystem information & Power Model, Overall Controller\\
 		\hline
-		 Indicate to the view what to display & Power View, Power Model\\
+		 Indicate to the overall view what to display & Power View, Power Model, Overall Controller\\
 		\hline
 		 Generate the stimulation based on a time & Overall Controller \\
 		\hline
@@ -414,7 +418,9 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 DIsplay the oxygen system to the user & Oxygen Controller\\
+		 User wants to show view & Oxygen Controller\\
+		\hline
+		User wants to hide view & Oxygen Controller\\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -432,7 +438,7 @@ This section should contain all of your CRC cards.
 		\hline
 		 Tells system of subsystem information & Oxygen Model, Overall Controller\\
 		\hline
-		 Indicate to the view what to display & Oxygen Model, Oxygen View\\
+		 Indicate to the overall view what to display & Oxygen Model, Oxygen View, Overall Controller\\
 		\hline
 		 Generate the stimulation based on a time & Overall Controller \\
 		\hline
@@ -462,7 +468,9 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 DIsplay the mechanical system to the user & Mechanical Controller\\
+		 User wants to show view & Mechanical Controller\\
+		\hline
+		User wants to hide view & Mechanical Controller\\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -480,9 +488,79 @@ This section should contain all of your CRC cards.
 		\hline
 		 Tells system of subsystem information & Mechanical Model, Overall Controller\\
 		\hline
-		 Indicate to the view what to display & Mechanical Model, Mechanical View\\
+		 Indicate to the overall view what to display & Mechanical Model, Mechanical View, Overall Controller\\
 		\hline
 		 Generate the stimulation based on a time & Overall Controller \\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Overall View
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Overall View}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 Display spaceship system & \\
+		\hline
+		Display one or multiple subsystems & Overall Controller\\
+		\hline
+		Get user input on which subsystem issue to handle to & Overall Controller \\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Timer
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Overall View}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 Pause game & Overall Controller \\
+		\hline
+		 Keep track of game time & Overall Controller\\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Timer
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Main Timer}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 Pause game & Overall Controller \\
+		\hline
+		 Keep track of game time & Overall Controller\\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%Overall Controller
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Overall Controller}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		 Starts, pauses and ends game & Control Object, Main Timer \\
+		\hline
+		 Handle tool choices and relay information to subsystem & Tool Controller, Power Controller, Oxygen Controller, Mechanical Controller\\
+		\hline
+		 Handle input from user for which view to display & Power Controller, Oxygen Controller, Mechanical Controller, Overall View \\
+		\hline
+		 Giving time tics to subsystem to generate stimuli & Main Timer, Power Controller, Oxygen Controller, Mechanical Controller \\
 		\hline
 		\end{tabular}
 	\end{table}
