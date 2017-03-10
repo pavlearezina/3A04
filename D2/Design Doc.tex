@@ -160,7 +160,7 @@ This section should contain all of your CRC cards.
 		\hline
 		 Receive request to display a prompt to start game& Menu Controller \\
 		\hline
-		 Display screen message to user& \\
+		 Display prompt to user& \\
 		\hline
 		 Respond to prompt being pressed by user& \\
 		\hline
@@ -180,7 +180,7 @@ This section should contain all of your CRC cards.
 		\hline
 		 Receive request to display a prompt to end game& Menu Controller \\
 		\hline
-		 Display screen message to user& \\
+		 Display prompt to user& \\
 		\hline
 		 Respond to prompt being pressed by user& \\
 		\hline
@@ -200,7 +200,7 @@ This section should contain all of your CRC cards.
 		\hline
 		 Receive request to display a prompt to pause game& Menu Controller \\
 		\hline
-		 Display screen message to user& \\
+		 Display screen prompt to user& \\
 		\hline
 		 Respond to prompt being pressed by user& \\
 		\hline
@@ -220,7 +220,7 @@ This section should contain all of your CRC cards.
 		\hline
 		 Receive request to display a screen message when game has been won& Menu Controller \\
 		\hline
-		 Display screen message to user& \\
+		 Display prompt to user& \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -236,7 +236,7 @@ This section should contain all of your CRC cards.
 		\hline
 		 Receive request to display a screen message when game has been lost& Menu Controller \\
 		\hline
-		 Display screen message to user& \\
+		 Display prompt to user& \\
 		\hline
 		\end{tabular}
 	\end{table}	
@@ -246,7 +246,7 @@ This section should contain all of your CRC cards.
 		\centering
 		\begin{tabular}{|p{10cm}|p{5cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name: Menu Controller}} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name: Control Object}} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
@@ -278,9 +278,13 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 Get user input of tool they want to use & Tool Controller\\
+		 Display tool selection to user& \\
 		\hline
-		 Display the the tools the user has the option of using & Tool Controller \\
+		 Recive tool selection from user& \\
+		\hline
+		 Send request to use tool & Tool Controller\\
+		\hline
+		 Receive request to display tool selection & Tool Controller \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -294,7 +298,9 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 Display to user that they chose the wrong tool & Tool Controller\\
+		 Display to user that they chose the wrong tool & \\
+		\hline
+		Receive request to display failure message & Tool Controller \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -308,7 +314,9 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 Display to user that they chose the correct tool & Tool Controller\\
+		 Display to user that they chose the right tool & \\
+		\hline
+		Receive request to display success message & Tool Controller \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -322,7 +330,9 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 A view to show the user that there is an issue with the spaceship & Tool Controller\\
+		 Receive request to show that there is an issue with the spaceship & Tool Controller\\
+		\hline
+		Show issue in spaceship & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -336,7 +346,7 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 A timer to handle the duration of an event & Tool Controller\\
+		 Hold information about when events occur and sends to tool controller & Tool Controller\\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -350,13 +360,15 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 Get user's tool choice & Choose Tool\\
+		 Receive user's tool choice & Choose Tool\\
 		\hline
-		 Determine if it was the correct tool to use & Tool Success, Tool Fail \\
+		 Determine if it was the correct tool to use and inform user & Tool Success, Tool Fail \\
 		\hline
 		 Inform the user of an issue & Event Alert \\
 		\hline
-		 Know the event has occured & Overall Controller \\
+		 Receive event from overall controller & Overall Controller \\
+		\hline
+		Receive time to determine when event should occur & Event Timer \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -370,7 +382,9 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 Hold the information of the power system & \\
+		 Hold and update information of the power system & \\
+		\hline
+		Receive updates and from the overall controller & Overall controller \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -383,10 +397,8 @@ This section should contain all of your CRC cards.
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Power View}} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
-		\hline
-		 User wants to show view & Power Controller\\
-		\hline
-		User wants to hide view & Power Controller\\
+		\hline 
+		 Receive request if view is hidden or shown & Power Controller\\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -402,11 +414,11 @@ This section should contain all of your CRC cards.
 		\hline
 		Updates subsystem information after tool usage & Power Model, Overall Controller\\
 		\hline
-		 Tells system of subsystem information & Power Model, Overall Controller\\
+		 Informs overall controller of subsystem information & Power Model, Overall Controller\\
 		\hline
-		 Indicate to the overall view what to display & Power View, Power Model, Overall Controller\\
+		 Informs the overall controller what is being displayed & Power View, Power Model, Overall Controller\\
 		\hline
-		 Generate the stimulation based on a time & Overall Controller \\
+		 Generate the stimulation based on a time given & Overall Controller \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -420,7 +432,9 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 Hold the information of the oxygen system & \\
+		 Hold and update information of the oxygen system & \\
+		\hline
+		Receive updates and from the overall controller & Overall controller \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -433,10 +447,8 @@ This section should contain all of your CRC cards.
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Oxygen View}} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
-		\hline
-		 User wants to show view & Oxygen Controller\\
-		\hline
-		User wants to hide view & Oxygen Controller\\
+		\hline 
+		 Receive request if view is hidden or shown & Oxygen Controller\\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -452,11 +464,11 @@ This section should contain all of your CRC cards.
 		\hline
 		Updates subsystem information after tool usage & Oxygen Model, Overall Controller\\
 		\hline
-		 Tells system of subsystem information & Oxygen Model, Overall Controller\\
+		 Informs overall controller of subsystem information & Oxygen Model, Overall Controller\\
 		\hline
-		 Indicate to the overall view what to display & Oxygen Model, Oxygen View, Overall Controller\\
+		 Informs the overall controller what is being displayed & Oxygen View, Oxygen Model, Overall Controller\\
 		\hline
-		 Generate the stimulation based on a time & Overall Controller \\
+		 Generate the stimulation based on a time given & Overall Controller \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -470,7 +482,9 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 Hold the information of the mechanical system & \\
+		 Hold and update information of the mechanical system & \\
+		\hline
+		Receive updates and from the overall controller & Overall controller \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -484,9 +498,7 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 User wants to show view & Mechanical Controller\\
-		\hline
-		User wants to hide view & Mechanical Controller\\
+		 Receive request if view is hidden or shown & Mechanical Controller\\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -502,11 +514,11 @@ This section should contain all of your CRC cards.
 		\hline
 		Updates subsystem information after tool usage & Mechanical Model, Overall Controller\\
 		\hline
-		 Tells system of subsystem information & Mechanical Model, Overall Controller\\
+		 Informs overall controller of subsystem information & Mechanical Model, Overall Controller\\
 		\hline
-		 Indicate to the overall view what to display & Mechanical Model, Mechanical View, Overall Controller\\
+		 Informs the overall controller what is being displayed & Mechanical View, Mechanical Model, Overall Controller\\
 		\hline
-		 Generate the stimulation based on a time & Overall Controller \\
+		 Generate the stimulation based on a time given & Overall Controller \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -524,7 +536,7 @@ This section should contain all of your CRC cards.
 		\hline
 		Display one or multiple subsystems & Overall Controller\\
 		\hline
-		Get user input on which subsystem issue to handle to & Overall Controller \\
+		Get user input on which subsystem issue to handle & Overall Controller \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -538,9 +550,7 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 Pause game & Overall Controller \\
-		\hline
-		 Keep track of game time & Overall Controller\\
+		 Send game time to Overall Controller & Overall Controller\\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -554,7 +564,7 @@ This section should contain all of your CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		 Starts, pauses and ends game & Control Object, Main Timer \\
+		 Requests to start, pause and end game & Control Object \\
 		\hline
 		 Handle tool choices and relay information to subsystem & Tool Controller, Power Controller, Oxygen Controller, Mechanical Controller\\
 		\hline
