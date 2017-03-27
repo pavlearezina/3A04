@@ -21,7 +21,8 @@
 %------------------------------------------------------------------------------
 \pagestyle{plain}  
 \renewcommand\headrulewidth{0.4pt}                                      
-\renewcommand\footrulewidth{0.4pt}                                    
+\renewcommand\footrulewidth{0.4pt}       
+\newcommand\tab[1][1cm]{\hspace*{#1}}                                 
 %------------------------------------------------------------------------------
 
 % Title Details
@@ -52,8 +53,6 @@
 \label{sec:introduction}
 % Begin Section
 
-This section should provide an brief overview of the entire document.
-
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
@@ -65,19 +64,12 @@ This section should provide an brief overview of the entire document.
 
 \subsection{System Description}
 \label{sub:system_description}
-% Begin SubSection
-\begin{enumerate}[a)]
-	\item Give a brief description of the system. This could be a paragraph or two to give some context to this document.
-\end{enumerate}
-% End SubSection
+\tab Space system sabotage is a simulation of a fictional spaceship that is travelling to a pre-determined location in a fixed amount of time. The user will interact with the system through random events based on a function of the running time of the simulation. Random events will involve negative situations that occur, such as comets damaging the ship or part of the ship being sabotaged, where the user will have to respond to fix them in a timely manner with a selection of tools. If successful, the space ship continues toward its goal but if an incorrect solution was chosen then the problem is spread to other systems. If enough events happen with incorrect solutions to them, then the space ship will slowly spiral out of control and the user will fail the simulation. This system offers an entertaining environment to the user where they will be challenged to keep the spaceship intact until it dock import at the space station.
 
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Describe what the rest of the document contains 
-	\item Explain how the document is organised
-\end{enumerate}
+\tab The rest of this document is separated into three sections, the first being the state charts for controller classes. These diagrams describe the dynamic behaviour of a system in response to external stimuli. They are especially useful in modelling reactive objects whose states are triggered by specific events. The next section entails the sequence diagrams of the system. Interactions between among classes in terms of exchange of messages over time are documented in the sequence diagrams. There is usually one for each use case found for the system. The last section is composed of the class diagram that describes the static structure of the system. Class diagrams are the backbone of almost every object orientated method, such as the UML method utilized for this document. After these three sections, there is the appendix that includes the division of labour. 
 
 % End SubSection
 
@@ -87,41 +79,41 @@ This section should provide an brief overview of the entire document.
 \label{sec:state_charts_for_controller_classes}
 
 % Begin Section
-\subsection{Tool Controller}
+\subsection*{Tool Controller}
 \begin{figure}[H]
 \centering
 \includegraphics[width=120mm]{ToolController.png}
 \caption{Tool Controller State Chart}
 \end{figure}
 
-\subsection{Control Object}
+\subsection*{Control Object}
 \begin{figure}[H]
 \centering
 \includegraphics[width=120mm]{ControlObject.png}
 \caption{Tool Controller State Chart}
 \end{figure}
 
-\subsection{Power Controller}
+\subsection*{Power Controller}
 \begin{figure}[H]
 \centering
 \includegraphics[width=120mm]{PowerController.png}
 \caption{Power Controller State Chart}
 \end{figure}
 
-\subsection{Mechanical Controller}
+\subsection*{Mechanical Controller}
 \begin{figure}[H]
 \centering
 \includegraphics[width=120mm]{MechanicalController.png}
 \caption{Mechanical Controller State Chart}
 \end{figure}
 
-\subsection{Oxygen Controller}\begin{figure}[H]
+\subsection*{Oxygen Controller}\begin{figure}[H]
 \centering
 \includegraphics[width=120mm]{OxygenController.png}
 \caption{Oxygen Controller State Chart}
 \end{figure}
 
-\subsection{Overall Controller}
+\subsection*{Overall Controller}
 \newpage
 \begin{figure}[H]
 
@@ -160,8 +152,8 @@ This section should provide an brief overview of the entire document.
 \subsection*{View Overall Simulation}
 \begin{figure}[H]
 \centering
-\includegraphics[width=120mm]{ToolController.png}
-\caption{Tool Controller State Chart}
+\includegraphics[scale = 0.35]{"Overall View".jpg}
+\caption{Overall View Sequence Diagram}
 \end{figure}
 \subsection*{View Power System}
 \begin{figure}[H]
@@ -172,7 +164,7 @@ This section should provide an brief overview of the entire document.
 \subsection*{View Oxygen System}
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.5]{"View Electrical System".jpg}
+\includegraphics[scale = 0.5]{"View Oxygen System".jpg}
 \caption{View Oxygen System Sequence Diagram}
 \end{figure}
 \subsection*{View Mechanical System}
