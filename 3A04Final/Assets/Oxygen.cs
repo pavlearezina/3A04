@@ -36,10 +36,16 @@ public class Oxygen : MonoBehaviour {
 
 			if(!roomStatus[i] && roomPercentage[i] > 0){
 				roomPercentage[i] -= 0.001;
+			}else{
+				roomPercentage[i] += 0.00005;
 			}
 
 			if(roomPercentage[i] < 0){
 				roomPercentage[i] = 0;
+			}
+
+			if(roomPercentage[i] >= 1){
+				roomPercentage[i] = 1;
 			}
 
 			roomText[i].text = "" + roomPercentage[i].ToString("P");
@@ -48,7 +54,6 @@ public class Oxygen : MonoBehaviour {
 			roomColour[i].color = new Color(colourR[i], colourG[i], 0f, 1f);
 
 		}
-			
 
 
 	}
@@ -65,8 +70,10 @@ public class Oxygen : MonoBehaviour {
 	}
 
 	void FixOxygen(int i){
-		roomStatus[i] = true;
-		eventOccur = true;
+		if(roomStatus[i] == false){
+			roomStatus[i] = true;
+			eventOccur = false;
+		}
 	}
 
 	public void HideOxygen(){

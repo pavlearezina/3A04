@@ -5,15 +5,14 @@ using UnityEngine.UI;
 
 public class Mechanical : MonoBehaviour {
 
-
 	public Material redMaterial;
 	public Material defaultMaterial;
 	public GameObject[] doorColour = new GameObject[4];
 
 	private bool[] doorStatus = new bool[4];
-	private bool hidden;
 	private bool[] doorFlashing = new bool[4];
 	private bool[] startFlashing = new bool[4];
+	private bool hidden;
 	private bool eventOccur;
 
 	// Use this for initialization
@@ -52,6 +51,8 @@ public class Mechanical : MonoBehaviour {
 			InvokeRepeating("flashDoor4", 0f , 0.7f);
 			startFlashing[3] = true;
 		}
+
+
 			
 	}
 
@@ -115,6 +116,17 @@ public class Mechanical : MonoBehaviour {
 			hidden = true;
 		}else{
 			hidden = false;
+		}
+	}
+
+	public void FixMechanical(int i){
+		if(doorStatus[i] == false){
+			doorStatus[i] = true;
+			eventOccur = false;
+			startFlashing[i] = false;
+			doorColour[i].GetComponent<MeshRenderer>().material = defaultMaterial;
+			CancelInvoke();
+			InvokeRepeating("GenerateEvent", 0f, 0.1f);
 		}
 	}
 }
