@@ -54,8 +54,8 @@ public class Oxygen : MonoBehaviour {
 	}
 
 	void GenerateEvent(){
-		int randomNum1 = Random.Range(0, 10);
-		int randomNum2 = Random.Range(0, 4);
+		int randomNum1 = Random.Range(0, 11);
+		int randomNum2 = Random.Range(0, 5);
 
 		if(randomNum1 == 1 && !eventOccur){
 			roomStatus[randomNum2] = false;
