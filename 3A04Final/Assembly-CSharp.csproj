@@ -46,11 +46,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\MainScreen.cs" />
      <Compile Include="Assets\Mechanical.cs" />
      <Compile Include="Assets\OverallController.cs" />
      <Compile Include="Assets\Oxygen.cs" />
      <Compile Include="Assets\Power.cs" />
-     <Compile Include="Assets\Scripts\MainScreen.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

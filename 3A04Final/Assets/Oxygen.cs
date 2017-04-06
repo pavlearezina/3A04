@@ -90,4 +90,8 @@ public class Oxygen : MonoBehaviour {
 			hidden = false;
 		}
 	}
+
+	public bool getRoomEnable(){
+		return roomColour[0].enabled;
+	}
 }
