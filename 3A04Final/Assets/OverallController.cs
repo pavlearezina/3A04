@@ -11,6 +11,10 @@ public class OverallController : MonoBehaviour {
 	public GameObject[] mechObject = new GameObject[3];
 	public GameObject[] powerObject = new GameObject[3];
 
+	public GameObject oxygenSystem;
+	public GameObject mechanicalSystem;
+	public GameObject powerSystem;
+
 	// Use this for initialization
 	void Start () {
 		MainScreen ms = GameObject.Find("GameStart").GetComponent<MainScreen>();
@@ -74,7 +78,7 @@ public class OverallController : MonoBehaviour {
 	}
 
 	void UpdateShipSlider(){
-		SpaceShipSlider.value +=.0005f; //rate a which slider moves
+		SpaceShipSlider.value +=.05f; //rate a which slider moves
 		if (SpaceShipSlider.value == 1)
 			SceneManager.LoadScene("GameWon");
 	}
