@@ -129,4 +129,8 @@ public class Mechanical : MonoBehaviour {
 			InvokeRepeating("GenerateEvent", 0f, 0.1f);
 		}
 	}
+
+	public bool getRoomEnable(){
+		return (doorColour[0].GetComponent<MeshRenderer>()).enabled;
+	}
 }
