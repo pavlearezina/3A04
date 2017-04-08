@@ -5,19 +5,27 @@ using UnityEngine.UI;
 
 public class Power: MonoBehaviour {
 
+	public GameObject mechanicalSystem;
+	public GameObject oxygenSystem;
+
 	public Material redMaterial;
 	public Material defaultMaterial;
 	public GameObject[] wireColour = new GameObject[13];
+
+	private int[] wiretimer = new int[13];
+	private bool[] wirebroken = new bool[13];
 
 	private bool[] wireStatus = new bool[13];
 	private bool[] wireFlashing = new bool[13];
 	private bool[] startFlashing = new bool[13];
 	private bool hidden;
 	private bool eventOccur;
+	private int brokenTotal;
 
 	// Use this for initialization
 	void Start () {
 		for(int i = 0; i < 13; i++){
+			wirebroken[i] = false;
 			wireStatus[i] = true;
 			wireFlashing[i] = false;
 			startFlashing[i] = false;
@@ -25,36 +33,61 @@ public class Power: MonoBehaviour {
 
 		hidden = false;
 		eventOccur = false;
+		brokenTotal = 0;
 
-		InvokeRepeating("GenerateEvent", 5f, 0.1f);
+		InvokeRepeating("GenerateEvent", 0f, 2f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(!wireStatus[0] && !startFlashing[0]){
+		if(!wireStatus[0] && !startFlashing[0] && !wirebroken[0]){
 			InvokeRepeating("flashWire1", 0f , 0.7f);
 			startFlashing[0] = true;
 		}
 
-		if(!wireStatus[6] && !startFlashing[6]){
-			InvokeRepeating("flashWire7", 0f , 0.7f);
-			startFlashing[6] = true;
+		if(!wireStatus[1] && !startFlashing[1] && !wirebroken[1]){
+			InvokeRepeating("flashWire2", 0f , 0.7f);
+			startFlashing[1] = true;
 		}
 
-		if(!wireStatus[2] && !startFlashing[2]){
+		if(!wireStatus[2] && !startFlashing[2]&& !wirebroken[2]){
 			InvokeRepeating("flashWire3", 0f , 0.7f);
 			startFlashing[2] = true;
 		}
 
-		if(!wireStatus[3] && !startFlashing[3]){
+		if(!wireStatus[3] && !startFlashing[3]&& !wirebroken[3]){
 			InvokeRepeating("flashWire4", 0f , 0.7f);
 			startFlashing[3] = true;
 		}
 
-		if(!wireStatus[4] && !startFlashing[4]){
+		if(!wireStatus[4] && !startFlashing[4]&& !wirebroken[4]){
 			InvokeRepeating("flashWire5", 0f , 0.7f);
 			startFlashing[4] = true;
 		}
+		for(int i = 0; i < 13; i++){
+			if (wireStatus[i]== false)
+			{
+				wiretimer[i] -= 1;
+			}
+
+			if(wiretimer[i] <= 0 && !wireStatus[i] && !wirebroken[i])
+			{
+				wireColour[i].GetComponent<MeshRenderer>().material = redMaterial;
+				wirebroken[i] = true;
+				startFlashing [i] = false;
+				eventOccur = false;
+				CancelInvoke ();
+				InvokeRepeating("GenerateEvent", 0f, 2f);
+
+				int random = Random.Range(0,2);
+				if (random == 0) {
+					oxygenSystem.GetComponent<Oxygen>().generateOutsideEvent ();
+				} else {
+					mechanicalSystem.GetComponent<Mechanical>().generateOutsideEvent ();
+				}
+			}
+		}
+
 
 
 	}
@@ -125,24 +158,56 @@ public class Power: MonoBehaviour {
 		int randomNum1 = Random.Range(0, 11);
 		int randomNum2 = Random.Range(0, 5);
 
-		if(randomNum1 == 1 && !eventOccur){
+		if(randomNum1 == 1 && !eventOccur && !wirebroken[randomNum2]){
 			wireStatus[randomNum2] = false;
+
+			wiretimer[randomNum2]= 1000;
+//			print ("Wire broken: " + wireColour[randomNum2].GetComponent<MeshRenderer>().name);
 			eventOccur = true;
 		}
 	}
 
 	public void FixPower(int i){
-		if(wireStatus[i] == false){
+		if(wireStatus[i] == false && wirebroken[i] == false){
 			wireStatus[i] = true;
 			eventOccur = false;
 			startFlashing[i] = false;
 			wireColour[i].GetComponent<MeshRenderer>().material = defaultMaterial;
 			CancelInvoke();
-			InvokeRepeating("GenerateEvent", 0f, 0.1f);
+			InvokeRepeating("GenerateEvent", 0f, 2f);
 		}
 	}
 
 	public bool getRoomEnable(){
 		return (wireColour[0].GetComponent<MeshRenderer>()).enabled;
+	}
+
+	public bool getRoomStatus(int i){
+		return wireStatus [i];
+	}
+
+	public int getBrokenAmount(){
+		brokenTotal = 0;
+		for(int i = 0; i < 5; i++){
+			if(wirebroken[i]){
+				brokenTotal++;
+			}
+		}
+
+		return brokenTotal;
+	}
+
+	public void generateOutsideEvent(){
+		int randomNum2 = Random.Range(0, 5);
+		eventOccur = false;
+		while (!eventOccur) {
+			if (!eventOccur && !wirebroken [randomNum2]) {
+				wireStatus [randomNum2] = false;
+
+				wiretimer [randomNum2] = 1000;
+//				print ("Wire broken: " + wireColour [randomNum2].GetComponent<MeshRenderer> ().name);
+				eventOccur = true;
+			}	
+		}
 	}
 }

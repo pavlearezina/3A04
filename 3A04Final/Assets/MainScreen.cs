@@ -23,12 +23,7 @@ public class MainScreen : MonoBehaviour {
 		SceneManager.LoadScene ("Ship");
 	}
 	public void loadMainScreen(){
-		GameObject.Find("GameStart").GetComponent<MainScreen>().oxygen = false;
-		GameObject.Find("GameStart").GetComponent<MainScreen>().mechanical = false;
-		GameObject.Find("GameStart").GetComponent<MainScreen>().power = false;
 		Destroy(GameObject.Find("GameStart"));
-
-
 		SceneManager.LoadScene ("Launch");
 	}
 }

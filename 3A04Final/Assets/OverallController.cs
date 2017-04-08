@@ -15,9 +15,14 @@ public class OverallController : MonoBehaviour {
 	public GameObject mechanicalSystem;
 	public GameObject powerSystem;
 
+	public Slider healthBar;
+	public GameObject toolController;
+
 	private Oxygen oxygen;
 	private Power power;
 	private Mechanical mechanical;
+
+	private int brokenTotal;
 
 	// Use this for initialization
 	void Start () {
@@ -39,7 +44,6 @@ public class OverallController : MonoBehaviour {
 				Destroy (powerObject [i]);
 			}
 		}
-	
 
 		InvokeRepeating("UpdateShipSlider", 0f, 0.1f);
 	}
@@ -50,13 +54,7 @@ public class OverallController : MonoBehaviour {
 		bool powerEnabled;
 		bool mechEnabled;
 
-		if (Input.touchCount != 0) {
-			Touch touch = Input.GetTouch (0);
-			Ray ray = Camera.main.ScreenPointToRay (touch.position);
-			var pos = Camera.main.ScreenToWorldPoint (touch.position);
-			RaycastHit hit;
-
-			RectTransform[] oxygenClicks = null;
+		RectTransform[] oxygenClicks = null;
 			RectTransform[] mechanicalClicks = null;
 			RectTransform[] powerClicks = null;
 
@@ -79,20 +77,28 @@ public class OverallController : MonoBehaviour {
 
 			try{
 				power = GameObject.Find("PowerSystem").GetComponent<Power>();
-				//				print(powerObject[1].GetComponents<RectTransform>);
 				powerClicks = powerObject [1].GetComponentsInChildren<RectTransform>();
 				powerEnabled = true;
 			}
 			catch{
 				powerEnabled = false;
 			}
+
+		if (Input.touchCount != 0) {
+			Touch touch = Input.GetTouch (0);
+			Ray ray = Camera.main.ScreenPointToRay (touch.position);
+			var pos = Camera.main.ScreenToWorldPoint (touch.position);
+			RaycastHit hit;
+
 			if (Physics.Raycast (ray, out hit) && touch.phase == TouchPhase.Began) {
 				if (oxygenEnabled) {
 					for (int i = 1; i < oxygenClicks.Length; i += 2) {
 						if (oxygen.getRoomEnable ()) {
 							if (RectTransformUtility.RectangleContainsScreenPoint (oxygenClicks [i], pos)) {
-								print ("Touched Oxygen " + (i / 2));
-								//debug.text = "Touched Oxygen " + (i / 2 + 1);
+//								print ("Touched Oxygen " + (i / 2));
+								if(oxygenSystem.GetComponent<Oxygen>().getRoomStatus(i/2) == false){
+									toolController.GetComponent<ToolController> ().makeWindow ("Oxygen",i/2);
+								}
 							}
 						}
 					}
@@ -101,8 +107,10 @@ public class OverallController : MonoBehaviour {
 					for (int i = 0; i < mechanicalClicks.Length; i++) {
 						if (mechanical.getRoomEnable ()) {
 							if (RectTransformUtility.RectangleContainsScreenPoint (mechanicalClicks [i], pos)) {
-								print ("Touched Door " + i);
-								//debug.text = "Touched Door " + (i + 1);
+//								print ("Touched Door " + i);
+								if (mechanicalSystem.GetComponent<Mechanical> ().getRoomStatus (i) == false) {
+									toolController.GetComponent<ToolController> ().makeWindow ("Mechanical", i);
+								}
 							}
 						}
 					}
@@ -111,21 +119,34 @@ public class OverallController : MonoBehaviour {
 					for (int i = 0; i < powerClicks.Length; i++) {
 						if (power.getRoomEnable ()) {
 							if (RectTransformUtility.RectangleContainsScreenPoint (powerClicks [i], pos)) {
-								print ("Touched " + powerClicks[i].name);
-								//debug.text = "Touched Wire " + (i + 1);
-							}
+//								print ("Touched " + powerClicks[i].name);
+								if (powerSystem.GetComponent<Power> ().getRoomStatus (i) == false) {
+									toolController.GetComponent<ToolController> ().makeWindow ("Power", i);
+								}
+                            }
 						}
 					}
 				}
 			}
+
 		}
 
+		if((mechanical.getBrokenAmount() + oxygen.getBrokenAmount() + power.getBrokenAmount()) > brokenTotal){
+			updateHealthBar();
+			brokenTotal = mechanical.getBrokenAmount() + oxygen.getBrokenAmount() + power.getBrokenAmount();
+		}
 	}
 
 	void UpdateShipSlider(){
-		SpaceShipSlider.value +=.05f; //rate a which slider moves
+		SpaceShipSlider.value +=.001f; //rate a which slider moves
 		if (SpaceShipSlider.value == 1)
 			SceneManager.LoadScene("GameWon");
 	}
 
+	void updateHealthBar(){ //call this to update health bar by x
+		healthBar.value -= 0.2f; //distance health bar moves
+		if (healthBar.value == 0) {
+			SceneManager.LoadScene ("GameOver");
+		}
+	}
 }
